@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import checker from 'vite-plugin-checker'
+import legacy from '@vitejs/plugin-legacy'
 import { viteMockServe } from 'vite-plugin-mock'
+import removeConsole from 'vite-plugin-remove-console'
 import { createStyleImportPlugin, AntdResolve } from 'vite-plugin-style-import'
 import * as path from 'path'
 
@@ -10,8 +13,17 @@ const localEnabled = (process.env.use_mock as unknown as boolean) || false
 export default defineConfig({
   mode: process.env.mode,
   plugins: [
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    }),
     react(),
-    createStyleImportPlugin({ resolves: [AntdResolve()]}),
+    checker({
+      typescript: true
+    }),
+    removeConsole(),
+    createStyleImportPlugin({
+      resolves: [AntdResolve()]
+    }),
     viteMockServe({
       mockPath: 'mock',
       localEnabled,
@@ -41,6 +53,6 @@ export default defineConfig({
     }
   },
   build: {
-
+    sourcemap: true
   }
 })
