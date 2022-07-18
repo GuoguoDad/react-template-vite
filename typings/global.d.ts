@@ -108,5 +108,14 @@ declare namespace API {
   };
 }
 
+declare type Recordable<T = any> = Record<string, T>;
+
+declare interface GlobalEnv {
+  APP_MODE: string;
+  APP_DOCUMENT_TITLE: string;
+  APP_HOST_PORT: number;
+  APP_HOST_API: string;
+}
+
 
 

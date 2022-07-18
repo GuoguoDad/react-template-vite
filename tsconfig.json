@@ -25,6 +25,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["./src/**/*", "./typings/*"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["./src/**/*", "./typings/*"]
 }
