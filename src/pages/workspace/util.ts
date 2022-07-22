@@ -93,7 +93,6 @@ export const tempData = [
   }
 ]
 
-
 export const getColor = (status: any) => {
   let color = ''
   switch (status) {
@@ -109,6 +108,3 @@ export const getColor = (status: any) => {
   }
   return color
 }
-
-
-

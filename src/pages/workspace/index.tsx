@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from 'react'
+import React, { PropsWithChildren } from 'react'
 import { Layout } from 'antd'
 
 const { Content } = Layout
@@ -13,9 +13,7 @@ const WorkSpace = (props: WorkSpaceProps) => {
       <LeftMenu />
       <Layout>
         <Header />
-        <Content className={styles.content}>
-          {props.children}
-        </Content>
+        <Content className={styles.content}>{props.children}</Content>
       </Layout>
     </Layout>
   )

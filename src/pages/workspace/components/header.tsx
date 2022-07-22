@@ -34,7 +34,7 @@ const WorkSpaceHeader = () => {
         newNotice.key = newNotice.id
       }
       if (newNotice.extra && newNotice.status) {
-        let color = getColor(newNotice.status)
+        const color = getColor(newNotice.status)
         newNotice.extra = (
           <Tag color={color} style={{ marginRight: 0 }}>
             {newNotice.extra}
@@ -51,9 +51,9 @@ const WorkSpaceHeader = () => {
     <Header className="notice-header">
       {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
         className: 'trigger',
-        onClick: ()=> {
+        onClick: () => {
           dispatch(bachSetState({ collapsed: collapsed ? false : true }))
-        },
+        }
       })}
       <div className="header-right">
         <NoticeIcon
@@ -90,22 +90,28 @@ const WorkSpaceHeader = () => {
             showViewMore
           />
         </NoticeIcon>
-        <Dropdown overlay={
-          <Menu className="menu" selectedKeys={[]} onClick={(info: MenuInfo) => {
-            console.log('======info:', info)
-          }}>
-            <Menu.Item key="center" icon={<UserOutlined />}>
-              个人中心
-            </Menu.Item>
-            <Menu.Item key="setting" icon={<SettingOutlined />}>
-              设置
-            </Menu.Item>
-            <Menu.Divider />
-            <Menu.Item key="logout" icon={<LogoutOutlined />}>
-              退出登录
-            </Menu.Item>
-          </Menu>
-        }>
+        <Dropdown
+          overlay={
+            <Menu
+              className="menu"
+              selectedKeys={[]}
+              onClick={(info: MenuInfo) => {
+                console.log('======info:', info)
+              }}
+            >
+              <Menu.Item key="center" icon={<UserOutlined />}>
+                个人中心
+              </Menu.Item>
+              <Menu.Item key="setting" icon={<SettingOutlined />}>
+                设置
+              </Menu.Item>
+              <Menu.Divider />
+              <Menu.Item key="logout" icon={<LogoutOutlined />}>
+                退出登录
+              </Menu.Item>
+            </Menu>
+          }
+        >
           <span className="action account">
             <Avatar
               size="small"

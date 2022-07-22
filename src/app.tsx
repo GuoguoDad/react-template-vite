@@ -8,8 +8,8 @@ const ChartLine = loadable(() => import('@pages/chart/chart-line'))
 const App = () => {
   return (
     <Routes>
-      <Route key={'user-list'} path="/user/list" element={<UserList/>} />
-      <Route key={'chart-line'} path="/chart/line" element={<ChartLine/>} />
+      <Route key={'user-list'} path="/user/list" element={<UserList />} />
+      <Route key={'chart-line'} path="/chart/line" element={<ChartLine />} />
     </Routes>
   )
 }

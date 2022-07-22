@@ -11,38 +11,29 @@ import styles from './index.module.less'
 const { TabPane } = Tabs
 
 export type NoticeIconProps = {
-  count?: number;
-  bell?: React.ReactNode;
-  className?: string;
-  loading?: boolean;
-  onClear?: (tabName: string, tabKey: string) => void;
-  onItemClick?: (item: API.NoticeIconItem, tabProps: NoticeIconTabProps) => void;
-  onViewMore?: (tabProps: NoticeIconTabProps, e: MouseEvent) => void;
-  onTabChange?: (tabTile: string) => void;
-  style?: React.CSSProperties;
-  onPopupVisibleChange?: (visible: boolean) => void;
-  popupVisible?: boolean;
-  clearText?: string;
-  viewMoreText?: string;
-  clearClose?: boolean;
-  emptyImage?: string;
-  children?: React.ReactElement<NoticeIconTabProps>[];
-};
+  count?: number
+  bell?: React.ReactNode
+  className?: string
+  loading?: boolean
+  onClear?: (tabName: string, tabKey: string) => void
+  onItemClick?: (item: API.NoticeIconItem, tabProps: NoticeIconTabProps) => void
+  onViewMore?: (tabProps: NoticeIconTabProps, e: MouseEvent) => void
+  onTabChange?: (tabTile: string) => void
+  style?: React.CSSProperties
+  onPopupVisibleChange?: (visible: boolean) => void
+  popupVisible?: boolean
+  clearText?: string
+  viewMoreText?: string
+  clearClose?: boolean
+  emptyImage?: string
+  children?: React.ReactElement<NoticeIconTabProps>[]
+}
 
 const NoticeIcon: React.FC<NoticeIconProps> & {
-  Tab: typeof NoticeList;
-} = (props) => {
+  Tab: typeof NoticeList
+} = props => {
   const getNotificationBox = (): React.ReactNode => {
-    const {
-      children,
-      loading,
-      onClear,
-      onTabChange,
-      onItemClick,
-      onViewMore,
-      clearText,
-      viewMoreText,
-    } = props
+    const { children, loading, onClear, onTabChange, onItemClick, onViewMore, clearText, viewMoreText } = props
     if (!children) {
       return null
     }
@@ -69,7 +60,7 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
             showViewMore={showViewMore}
             title={title}
           />
-        </TabPane>,
+        </TabPane>
       )
     })
     return (
@@ -87,7 +78,7 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
 
   const [visible, setVisible] = useMergedState<boolean>(false, {
     value: props.popupVisible,
-    onChange: props.onPopupVisibleChange,
+    onChange: props.onPopupVisibleChange
   })
   const noticeButtonClass = classNames(className, styles.noticeButton)
   const notificationBox = getNotificationBox()
@@ -119,7 +110,7 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
 }
 
 NoticeIcon.defaultProps = {
-  emptyImage: 'https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg',
+  emptyImage: 'https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg'
 }
 
 NoticeIcon.Tab = NoticeList

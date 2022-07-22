@@ -5,20 +5,20 @@ import classNames from 'classnames'
 import styles from './NoticeList.module.less'
 
 export type NoticeIconTabProps = {
-  count?: number;
-  showClear?: boolean;
-  showViewMore?: boolean;
-  style?: React.CSSProperties;
-  title: string;
-  tabKey: API.NoticeIconItemType;
-  onClick?: (item: API.NoticeIconItem) => void;
-  onClear?: () => void;
-  emptyText?: string;
-  clearText?: string;
-  viewMoreText?: string;
-  list: API.NoticeIconItem[];
-  onViewMore?: (e: any) => void;
-};
+  count?: number
+  showClear?: boolean
+  showViewMore?: boolean
+  style?: React.CSSProperties
+  title: string
+  tabKey: API.NoticeIconItemType
+  onClick?: (item: API.NoticeIconItem) => void
+  onClear?: () => void
+  emptyText?: string
+  clearText?: string
+  viewMoreText?: string
+  list: API.NoticeIconItem[]
+  onViewMore?: (e: any) => void
+}
 const NoticeList: React.FC<NoticeIconTabProps> = ({
   list = [],
   onClick,
@@ -29,15 +29,12 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
   showClear = true,
   clearText,
   viewMoreText,
-  showViewMore = false,
+  showViewMore = false
 }) => {
   if (!list || list.length === 0) {
     return (
       <div className={styles.notFound}>
-        <img
-          src="https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg"
-          alt="not found"
-        />
+        <img src="https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg" alt="not found" />
         <div>{emptyText}</div>
       </div>
     )
@@ -49,7 +46,7 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
         dataSource={list}
         renderItem={(item, i) => {
           const itemCls = classNames(styles.item, {
-            [styles.read]: item.read,
+            [styles.read]: item.read
           })
           // eslint-disable-next-line no-nested-ternary
           const leftIcon = item.avatar ? (
@@ -96,7 +93,7 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
         ) : null}
         {showViewMore ? (
           <div
-            onClick={(e) => {
+            onClick={e => {
               if (onViewMore) {
                 onViewMore(e)
               }

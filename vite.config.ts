@@ -2,7 +2,9 @@ import { ConfigEnv, defineConfig, loadEnv, UserConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import checker from 'vite-plugin-checker'
 import legacy from '@vitejs/plugin-legacy'
+import eslintPlugin from 'vite-plugin-eslint'
 import { viteMockServe } from 'vite-plugin-mock'
+import { createHtmlPlugin } from 'vite-plugin-html'
 import { createStyleImportPlugin, AntdResolve } from 'vite-plugin-style-import'
 import * as path from 'path'
 import { wrapperEnv } from './src/kits/util/getEnv'
@@ -10,18 +12,27 @@ import { wrapperEnv } from './src/kits/util/getEnv'
 // https://vitejs.dev/config/
 export default defineConfig( (mode: ConfigEnv): UserConfig => {
   const localEnabled = (process.env.useMock as unknown as boolean) || false
- const env = loadEnv(process.env.appEnv!, process.cwd(), 'APP_');
-  wrapperEnv(env)
+  const env = loadEnv(process.env.appEnv!, process.cwd(), 'APP_');
+  const viteEnv = wrapperEnv(env)
 
   return  {
     plugins: [
+      react(),
       legacy({
         targets: ['defaults', 'not IE 11']
       }),
-      react(),
       checker({
         typescript: true
       }),
+      createHtmlPlugin({
+        entry: './src/index.tsx',
+        inject: {
+          data: {
+            title: viteEnv.APP_DOCUMENT_TITLE
+          }
+        }
+      }),
+      eslintPlugin(),
       createStyleImportPlugin({
         resolves: [AntdResolve()]
       }),
