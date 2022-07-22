@@ -8,6 +8,10 @@ import styles from './user.module.less'
 
 import UserAdd from './user-add'
 
+
+
+
+
 const UserList = () => {
   const [state, setState] = useSetState<UserState>({
     data: [],
@@ -18,6 +22,9 @@ const UserList = () => {
     pageSize: 10,
     showAddForm: false
   })
+
+
+
 
   useEffect(() => {
     queryList(state.currentPage)
