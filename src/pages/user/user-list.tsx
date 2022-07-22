@@ -21,20 +21,16 @@ const UserList = () => {
 
   useEffect(() => {
     queryList(state.currentPage)
-  },[])
-
+  }, [])
 
   return (
     <>
       <Layout className={styles.container}>
         <div className={styles.toolbar}>
           <span className={styles.selectedText}>
-              {state.selectedRowKeys.length > 0 ? `已选中 ${state.selectedRowKeys.length} 条数据` : ''}
+            {state.selectedRowKeys.length > 0 ? `已选中 ${state.selectedRowKeys.length} 条数据` : ''}
           </span>
-          <Button
-            type="primary"
-            onClick={()=> setState({showAddForm: true})}
-          >
+          <Button type="primary" onClick={() => setState({ showAddForm: true })}>
             新增
           </Button>
         </div>
@@ -48,30 +44,32 @@ const UserList = () => {
           rowSelection={{
             selectedRowKeys: state.selectedRowKeys,
             fixed: true,
-            onChange: (selectedRowKeys) => {
-              setState({selectedRowKeys})
-            },
+            onChange: selectedRowKeys => {
+              setState({ selectedRowKeys })
+            }
           }}
-          columns={
-            [
-              {
-                className: 'table-column',
-                title: '姓名',
-                dataIndex: 'name'
-              }, {
+          columns={[
+            {
+              className: 'table-column',
+              title: '姓名',
+              dataIndex: 'name'
+            },
+            {
               className: 'table-column',
               title: '手机号',
               dataIndex: 'phone'
-            }, {
+            },
+            {
               className: 'table-column',
               title: '部门',
               dataIndex: 'deptName'
-            }, {
+            },
+            {
               className: 'table-column',
               title: '操作',
               dataIndex: '',
               width: 200,
-              render: (record) => (
+              render: record => (
                 <span>
                   <a>修改</a>
                   <Divider type="vertical" />
@@ -80,16 +78,15 @@ const UserList = () => {
                   </Popconfirm>
                 </span>
               )
-            },
-            ]
-          }
+            }
+          ]}
         />
         <div>
           <Pagination
-            className='common-pagination'
+            className="common-pagination"
             current={state.currentPage}
             style={{ margin: 16, fontSize: 12 }}
-            onChange={(page: number, pageSize?: number)=>{
+            onChange={(page: number, pageSize?: number) => {
               queryList(page)
             }}
             showTotal={(total: number, range: any) => {
@@ -98,7 +95,8 @@ const UserList = () => {
             defaultCurrent={1}
             defaultPageSize={10}
             total={state.total}
-            showQuickJumper />
+            showQuickJumper
+          />
         </div>
       </Layout>
       <Drawer
@@ -107,12 +105,12 @@ const UserList = () => {
         width={'80%'}
         closable={true}
         destroyOnClose={true}
-        onClose={()=> setState({showAddForm: false})}
+        onClose={() => setState({ showAddForm: false })}
         visible={state.showAddForm}
         getContainer={false}
         style={{ position: 'absolute' }}
       >
-        <UserAdd/>
+        <UserAdd />
       </Drawer>
     </>
   )

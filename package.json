@@ -7,10 +7,11 @@
     "dev:test": "cross-env appEnv=test vite",
     "build:prod": "tsc && cross-env appEnv=production vite build",
     "preview": "vite preview",
-    "server": "serve ./dist -p 52232",
     "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./src",
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,html,md}\"",
-    "lint:stylelint": "stylelint --fix \"**/*.{less,postcss,css,scss}\" --custom-syntax postcss-less --cache --cache-location node_modules/.cache/stylelint/"
+    "lint:stylelint": "stylelint --fix \"**/*.{less,postcss,css,scss}\" --custom-syntax postcss-less --cache --cache-location node_modules/.cache/stylelint/",
+    "format": "npm run lint:eslint && npm run lint:stylelint && npm run lint:prettier",
+    "server": "serve ./dist -p 52232"
   },
   "dependencies": {
     "@loadable/component": "^5.15.2",
@@ -74,15 +75,5 @@
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-mock": "^2.9.6",
     "vite-plugin-style-import": "^2.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,ts,jsx,tsx}": "eslint --fix",
-    "src/**/*.{less,postcss,css,scss}": "stylelint --custom-syntax postcss-less --cache --cache-location node_modules/.cache/stylelint/",
-    "src/**/*.{js,ts,json,tsx,css,less,scss,html,md}": "prettier --write --loglevel warn"
   }
 }
