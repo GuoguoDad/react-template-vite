@@ -11,7 +11,6 @@ import UserAdd from './user-add'
 
 
 
-
 const UserList = () => {
   const [state, setState] = useSetState<UserState>({
     data: [],
