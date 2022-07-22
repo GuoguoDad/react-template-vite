@@ -26,7 +26,7 @@ npx husky add .husky/pre-commit "yarn lint-staged --allow-empty"
 }
 ```
 
-# 代码提交信息规范
+# Git提交规范
 
 ```
 npm i @commitlint/cli @commitlint/config-conventional -D

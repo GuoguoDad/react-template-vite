@@ -13,5 +13,6 @@ dist
 /bin
 .eslintrc.js
 .prettierrc.js
-/src/mock/*
+/mock/*
+/dist/*
 
