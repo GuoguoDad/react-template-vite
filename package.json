@@ -11,6 +11,7 @@
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,html,md}\"",
     "lint:stylelint": "stylelint --fix \"**/*.{less,postcss,css,scss}\" --custom-syntax postcss-less --cache --cache-location node_modules/.cache/stylelint/",
     "format": "npm run lint:eslint && npm run lint:stylelint && npm run lint:prettier",
+    "prepare": "husky install",
     "server": "serve ./dist -p 52232"
   },
   "dependencies": {
@@ -84,8 +85,10 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
-      "prettier --write --loglevel warn",
-      "git add"
+      "prettier --write --loglevel warn"
+    ],
+    "**/*.{less,postcss,css,scss}": [
+      "stylelint --fix --custom-syntax postcss-less --cache --cache-location node_modules/.cache/stylelint/"
     ]
   }
 }
