@@ -6,6 +6,8 @@ import eslintPlugin from 'vite-plugin-eslint'
 import { viteMockServe } from 'vite-plugin-mock'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { createStyleImportPlugin, AntdResolve } from 'vite-plugin-style-import'
+import progress from 'vite-plugin-progress'
+import colors from 'picocolors'
 import * as path from 'path'
 import { wrapperEnv } from './src/kits/util/getEnv'
 
@@ -41,6 +43,9 @@ export default defineConfig( (mode: ConfigEnv): UserConfig => {
         localEnabled,
         prodEnabled: false,
         watchFiles: true
+      }),
+      progress({
+        format:  `${colors.green(colors.bold('Building'))} ${colors.cyan('[:bar]')} :percent`
       })
     ],
     resolve: {
