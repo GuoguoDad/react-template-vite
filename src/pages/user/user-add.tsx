@@ -1,7 +1,8 @@
 import React from 'react'
-import { Form, Input, Select, Button } from 'antd'
-import { formItemLayout, tailFormItemLayout } from './util'
+import { Button, Form, Input, Select } from 'antd'
 import styles from './user.module.less'
+import { formItemLayout, tailFormItemLayout } from './util'
+
 const { Option } = Select
 
 const UserAdd = () => {

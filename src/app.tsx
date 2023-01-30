@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import loadable from '@loadable/component'
 
 const UserList = loadable(() => import('@pages/user/user-list'))

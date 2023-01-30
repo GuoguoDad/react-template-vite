@@ -1,9 +1,9 @@
 import axios, { AxiosRequestConfig } from 'axios'
-import { BaseResponse } from './response'
-import { ResponseLogInterceptor } from './interceptors/response-log-interceptor'
 import { AuthInterceptor } from './interceptors/auth-intereceptor'
 import { ErrorResponseInterceptor } from './interceptors/error-response-interceptor'
+import { ResponseLogInterceptor } from './interceptors/response-log-interceptor'
 import { TokenInjectRequestInterceptor } from './interceptors/token-interceptor'
+import { BaseResponse } from './response'
 
 const instance = axios.create()
 // @ts-ignore

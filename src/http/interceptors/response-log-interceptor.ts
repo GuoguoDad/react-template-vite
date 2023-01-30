@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios'
-import { AxiosInterceptor } from './types'
 import { BaseResponse } from '../response'
+import { AxiosInterceptor } from './types'
 
 export const ResponseLogInterceptor: AxiosInterceptor<AxiosResponse<BaseResponse<any>>> = [
   // @ts-ignore

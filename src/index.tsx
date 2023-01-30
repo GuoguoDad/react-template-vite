@@ -1,11 +1,10 @@
 import React from 'react'
+import { Provider } from 'react-redux'
 import { createRoot } from 'react-dom/client'
 import { HashRouter } from 'react-router-dom'
-import { Provider } from 'react-redux'
 import { store } from '@store'
-import App from './app'
 import Workspace from '@pages/workspace'
-
+import App from './app'
 import './assets/style/index.less'
 
 const container = document.getElementById('root')

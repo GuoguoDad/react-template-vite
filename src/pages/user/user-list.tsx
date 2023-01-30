@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react'
 import { useSetState } from 'ahooks'
-import { Table, Button, Pagination, Divider, Layout, Popconfirm, Drawer } from 'antd'
-
-import { queryUserList } from './web-api'
+import { Button, Divider, Drawer, Layout, Pagination, Popconfirm, Table } from 'antd'
 import { UserState } from './type'
-import styles from './user.module.less'
-
 import UserAdd from './user-add'
+import styles from './user.module.less'
+import { queryUserList } from './web-api'
 
 const UserList = () => {
   const [state, setState] = useSetState<UserState>({

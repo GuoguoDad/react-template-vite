@@ -6,3 +6,5 @@
 **/*.sh
 
 /public/*
+
+src/components/*

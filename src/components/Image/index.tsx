@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
 import { useInViewport } from 'ahooks'
+import React, { useEffect, useRef, useState } from 'react'
 import defaultImg from '@img/default_goods.png'
 
 const Index = (props: IndexProps) => {

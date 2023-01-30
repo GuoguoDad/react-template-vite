@@ -1,8 +1,7 @@
 import React from 'react'
+import defaultImg from '@img/default_goods.png'
 import styles from './chartLine.module.less'
 import './index.less'
-
-import defaultImg from '@img/default_goods.png'
 
 const ChartLine = () => {
   return (

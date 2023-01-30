@@ -1,11 +1,10 @@
 import React, { PropsWithChildren } from 'react'
 import { Layout } from 'antd'
-
-const { Content } = Layout
-
 import Header from './components/header'
 import LeftMenu from './components/menu'
 import styles from './index.module.less'
+
+const { Content } = Layout
 
 const WorkSpace = (props: WorkSpaceProps) => {
   return (

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Layout, Menu } from 'antd'
-import { DesktopOutlined, UserOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
+import { Layout, Menu } from 'antd'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { RootState, AppDispatch } from '@store'
+import { AppDispatch, RootState } from '@store'
+import { DesktopOutlined, UserOutlined } from '@ant-design/icons'
 import { bachSetState } from '../slice'
 
 const { SubMenu } = Menu
