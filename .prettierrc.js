@@ -35,7 +35,7 @@ module.exports = {
   rangeStart: 0,
   rangeEnd: Infinity,
 
-  importOrder: ["^react$", "react-redux", "<THIRD_PARTY_MODULES>", "^@reduxjs/(.*)$", "^@comps$", "^@store$", "^@(.*)$",  "^@pages/(.*)$", "^[./]"],
+  importOrder: ["react", "react-redux", "<THIRD_PARTY_MODULES>", "^@reduxjs/(.*)$", "^@comps$", "^@store$", "^@(.*)$",  "^@pages/(.*)$", "^[./]"],
   importOrderSeparation: false,
   importOrderSortSpecifiers: true
 };

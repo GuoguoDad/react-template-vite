@@ -16,6 +16,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 instance.interceptors.response.use(...AuthInterceptor)
 instance.interceptors.response.use(...ErrorResponseInterceptor)
+// @ts-ignore
 instance.interceptors.request.use(...TokenInjectRequestInterceptor)
 
 const Fetch = {
