@@ -50,7 +50,6 @@ export default defineConfig( (mode: ConfigEnv): UserConfig => {
     ],
     resolve: {
       alias: {
-        '~antd': path.resolve(__dirname, './node_modules/antd'),
         '@pages': path.resolve(__dirname, './src/pages'),
         '@comps': path.resolve(__dirname, './src/components'),
         '@http': path.resolve(__dirname, './src/http/fetch'),

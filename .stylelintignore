@@ -4,3 +4,5 @@ public/*
 
 
 src/components/*
+src/assets/style/color/*
+src/assets/style/default.less
