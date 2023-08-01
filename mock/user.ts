@@ -1,5 +1,6 @@
 import { MockMethod } from 'vite-plugin-mock'
-const Mock = require('mockjs')
+// import Mock from 'mockjs'
+
 export default [
   {
     url: '/user/list',

@@ -1,4 +1,4 @@
-import { ConfigEnv, defineConfig, loadEnv, UserConfig } from 'vite'
+import { defineConfig, loadEnv, UserConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import checker from 'vite-plugin-checker'
 import legacy from '@vitejs/plugin-legacy'
@@ -12,7 +12,7 @@ import * as path from 'path'
 import { wrapperEnv } from './src/kits/util/getEnv'
 
 // https://vitejs.dev/config/
-export default defineConfig( (mode: ConfigEnv): UserConfig => {
+export default defineConfig( (): UserConfig => {
   const localEnabled = (process.env.useMock as unknown as boolean) || false
   const env = loadEnv(process.env.appEnv!, process.cwd(), 'APP_');
   const viteEnv = wrapperEnv(env)
@@ -42,7 +42,8 @@ export default defineConfig( (mode: ConfigEnv): UserConfig => {
         mockPath: 'mock',
         localEnabled,
         prodEnabled: false,
-        watchFiles: true
+        watchFiles: true,
+        logger: true
       }),
       progress({
         format:  `${colors.green(colors.bold('Building'))} ${colors.cyan('[:bar]')} :percent`
