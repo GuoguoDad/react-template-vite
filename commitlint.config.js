@@ -1,6 +1,6 @@
 const checkType = (header) => {
   header = `${header}`;
-  const enumType = ['feat', 'fix', 'style', 'chore', 'test', 'ci', 'refactor', 'revert', 'reformat', 'docs'];
+  const enumType = ['feat', 'fix', 'style', 'chore', 'test', 'ci', 'refactor', 'revert', 'reformat', 'docs', 'perf'];
   const realType = header.split(':')[0];
   return enumType.includes(realType);
 };
