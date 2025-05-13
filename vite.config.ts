@@ -12,12 +12,12 @@ import * as path from 'path'
 import { wrapperEnv } from './src/kits/util/getEnv'
 
 // https://vitejs.dev/config/
-export default defineConfig( (): UserConfig => {
-  const localEnabled = (process.env.useMock as unknown as boolean) || false
-  const env = loadEnv(process.env.appEnv!, process.cwd(), 'APP_');
+export default defineConfig((): UserConfig => {
+  const mockEnabled = (process.env.useMock as unknown as boolean) || false
+  const env = loadEnv(process.env.appEnv!, process.cwd(), 'APP_')
   const viteEnv = wrapperEnv(env)
 
-  return  {
+  return {
     plugins: [
       react(),
       legacy({
@@ -40,13 +40,12 @@ export default defineConfig( (): UserConfig => {
       }),
       viteMockServe({
         mockPath: 'mock',
-        localEnabled,
-        prodEnabled: false,
+        enable: mockEnabled,
         watchFiles: true,
         logger: true
       }),
       progress({
-        format:  `${colors.green(colors.bold('Building'))} ${colors.cyan('[:bar]')} :percent`
+        format: `${colors.green(colors.bold('Building'))} ${colors.cyan('[:bar]')} :percent`
       })
     ],
     resolve: {
@@ -64,7 +63,7 @@ export default defineConfig( (): UserConfig => {
         less: {
           javascriptEnabled: true,
           modifyVars: {
-            '@primary-color': '#4377FE',//设置antd主题色
+            '@primary-color': '#4377FE' //设置antd主题色
           }
         }
       }
@@ -72,16 +71,16 @@ export default defineConfig( (): UserConfig => {
     envPrefix: 'APP_',
     server: {
       port: 3000,
-      open: 'http://127.0.0.1:3000/#/user/list',
+      open: 'http://localhost:3000/#/user/list',
       cors: true
     },
     build: {
-      outDir: "dist",
+      outDir: 'dist',
       rollupOptions: {
         output: {
-          chunkFileNames: "assets/js/[name]-[hash].js",
-          entryFileNames: "assets/js/[name]-[hash].js",
-          assetFileNames: "assets/[ext]/[name]-[hash].[ext]"
+          chunkFileNames: 'assets/js/[name]-[hash].js',
+          entryFileNames: 'assets/js/[name]-[hash].js',
+          assetFileNames: 'assets/[ext]/[name]-[hash].[ext]'
         }
       }
     }
