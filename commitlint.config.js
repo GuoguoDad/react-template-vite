@@ -1,19 +1,18 @@
-const checkType = (header) => {
-  header = `${header}`;
-  const enumType = ['feat', 'fix', 'style', 'chore', 'test', 'ci', 'refactor', 'revert', 'reformat', 'docs', 'perf'];
-  const realType = header.split(':')[0];
-  return enumType.includes(realType);
-};
+const checkType = header => {
+  header = `${header}`
+  const enumType = ['feat', 'fix', 'style', 'chore', 'test', 'ci', 'refactor', 'revert', 'reformat', 'docs', 'perf']
+  const realType = header.split(':')[0]
+  return enumType.includes(realType)
+}
 
-const checkSubject = (header) => {
-  header = `${header}`;
-  const realSubject = header.split(':')[1];
+const checkSubject = header => {
+  header = `${header}`
+  const realSubject = header.split(':')[1]
   if (!realSubject) {
-    return false;
+    return false
   }
-  return realSubject.length > 0;
-};
-
+  return realSubject.length > 0
+}
 
 /*
  * @Description: commit-msg提交信息格式规范
@@ -37,7 +36,7 @@ module.exports = {
     'subject-enum-rule': [2, 'never'],
     'type-enum': [0, 'never'],
     'type-empty': [0, 'always'],
-    'subject-empty': [0, 'always'],
+    'subject-empty': [0, 'always']
   },
   plugins: [
     {
@@ -46,13 +45,13 @@ module.exports = {
           return [
             checkType(header),
             '需要包含提交类型，格式如: "feat: 开发新功能" 中的feat, ' +
-            '可选值有: feat/fix/style/test/chore/ci/..., 类型后面紧跟英文冒号分隔主题信息',
-          ];
+              '可选值有: feat/fix/style/test/chore/ci/..., 类型后面紧跟英文冒号分隔主题信息'
+          ]
         },
         'subject-enum-rule': ({ header }) => {
-          return [checkSubject(header), '需要包含提交主题, 格式如: "feat: 开发新功能" 中的 开发新功能'];
-        },
-      },
-    },
-  ],
-};
+          return [checkSubject(header), '需要包含提交主题, 格式如: "feat: 开发新功能" 中的 开发新功能']
+        }
+      }
+    }
+  ]
+}
