@@ -16,7 +16,10 @@
   },
   "dependencies": {
     "@ant-design/icons": "^6.0.0",
+    "@loadable/component": "^5.16.7",
     "@reduxjs/toolkit": "^2.8.1",
+    "@wangeditor-next/editor": "^5.6.34",
+    "@wangeditor-next/editor-for-react": "^1.0.9",
     "ahooks": "^3.8.4",
     "antd": "^5.4.2",
     "axios": "^1.9.0",
@@ -31,6 +34,7 @@
     "qs": "^6.14.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.56.4",
     "react-redux": "^9.2.0",
     "react-router": "^7.6.0",
     "react-router-dom": "^7.6.0",
@@ -40,7 +44,6 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",
-    "@loadable/component": "^5.15.3",
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "@types/loadable__component": "^5.13.4",
     "@types/lodash": "^4.14.196",
