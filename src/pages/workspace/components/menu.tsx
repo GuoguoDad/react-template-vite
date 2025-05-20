@@ -20,7 +20,7 @@ const LeftMenu = () => {
     if (location.pathname !== url) {
       navigate(url)
     }
-    dispatch(bachSetState({ memuName: name }))
+    dispatch(bachSetState({ menuName: name }))
   }
 
   return (

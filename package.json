@@ -93,9 +93,6 @@
     "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --write --loglevel warn"
-    ],
-    "src/**/*.{less,postcss,css,scss}": [
-      "stylelint --fix --custom-syntax postcss-less --cache --cache-location node_modules/.cache/stylelint/"
     ]
   }
 }

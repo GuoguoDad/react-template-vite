@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSetState } from 'ahooks'
-import { Button, Divider, Drawer, Layout, Pagination, Popconfirm, Table } from 'antd'
+import { Button, Divider, Drawer, Layout, Pagination, Popconfirm, Table, Breadcrumb } from 'antd'
 import { UserState } from './type'
 import UserAdd from './user-add'
 import styles from './user.module.less'
@@ -24,6 +24,27 @@ const UserList = () => {
   return (
     <>
       <Layout className={styles.container}>
+        <div className={styles.navContainer}>
+          <Breadcrumb
+            separator=">"
+            items={[
+              {
+                title: 'Home'
+              },
+              {
+                title: 'Application Center',
+                href: ''
+              },
+              {
+                title: 'Application List',
+                href: ''
+              },
+              {
+                title: 'An Application'
+              }
+            ]}
+          />
+        </div>
         <div className={styles.toolbar}>
           <span className={styles.selectedText}>
             {state.selectedRowKeys.length > 0 ? `已选中 ${state.selectedRowKeys.length} 条数据` : ''}
