@@ -49,5 +49,25 @@ const getBreadcrumbs = (pathname: string): string[] => {
   return breadcrumbs
 }
 
+const getDefaultOpenKeys = (pathname: string) => {
+  const pageRoutes = routerMaps[0].children!
+  let subMenuKey = '',
+    menuKey = ''
+  for (const routeItem of pageRoutes) {
+    if (pathname.includes(routeItem.path!)) {
+      subMenuKey = `/${routeItem.path!}`
+
+      for (const childMenuItem of routeItem.children || []) {
+        const childPath = `/${routeItem.path!}/${childMenuItem.path!}`
+        if (pathname === childPath) {
+          menuKey = childPath
+        }
+      }
+      if (!menuKey) break
+    }
+  }
+  return { subMenuKey, menuKey }
+}
+
 const router = createBrowserRouter(routerMaps)
-export { router, getBreadcrumbs, routerMaps }
+export { router, getBreadcrumbs, routerMaps, getDefaultOpenKeys }

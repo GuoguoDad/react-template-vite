@@ -2,7 +2,6 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Avatar, Dropdown, Layout, Menu, Tag } from 'antd'
 import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
 import groupBy from 'lodash/groupBy'
 import { MenuInfo } from 'rc-menu/lib/interface'
 import { NoticeIcon } from '@comps'
@@ -17,9 +16,6 @@ const { Header } = Layout
 const WorkSpaceHeader = () => {
   const dispatch: AppDispatch = useDispatch()
   const { collapsed } = useSelector((state: RootState) => state.workspace)
-
-  dayjs.extend(relativeTime)
-  dayjs.locale('zh-cn')
 
   function getNoticeData(notices: any) {
     if (notices.length === 0) {
@@ -55,7 +51,7 @@ const WorkSpaceHeader = () => {
           dispatch(bachSetState({ collapsed: collapsed ? false : true }))
         }
       })}
-      <div className="header-right">
+      <div className="header-right" style={{ lineHeight: '0px' }}>
         <NoticeIcon
           className="notice-action notice-icon"
           count={12}

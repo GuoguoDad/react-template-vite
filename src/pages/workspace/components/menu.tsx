@@ -3,15 +3,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 import { AppDispatch, RootState } from '@store'
-import { createMenuItems, routerMaps } from '@router'
+import { createMenuItems, routerMaps, getDefaultOpenKeys } from '@router'
 
 const { Sider } = Layout
 
 const LeftMenu = () => {
   const navigate = useNavigate()
-  const { menuKey, subMenuKey, collapsed } = useSelector((state: RootState) => state.workspace)
+  const { pathname } = useLocation()
+  const { collapsed } = useSelector((state: RootState) => state.workspace)
 
   const childMenuItems = createMenuItems(routerMaps[0].children, '', false)
+
+  const { subMenuKey, menuKey } = getDefaultOpenKeys(pathname)
 
   return (
     <Sider className="layout-sider" trigger={null} collapsible width={256} collapsed={collapsed}>
