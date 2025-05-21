@@ -48,7 +48,7 @@ const WorkSpaceHeader = () => {
       {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
         className: 'trigger',
         onClick: () => {
-          dispatch(bachSetState({ collapsed: collapsed ? false : true }))
+          dispatch(bachSetState({ collapsed: !collapsed }))
         }
       })}
       <div className="header-right" style={{ lineHeight: '0px' }}>
