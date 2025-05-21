@@ -3,25 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 import { AppDispatch, RootState } from '@store'
-import { DesktopOutlined, UserOutlined } from '@ant-design/icons'
-import { bachSetState } from '../slice'
+import { createMenuItems, routerMaps } from '../../../router'
 
-const { SubMenu } = Menu
 const { Sider } = Layout
 
 const LeftMenu = () => {
   const navigate = useNavigate()
-  const location = useLocation()
-
-  const dispatch: AppDispatch = useDispatch()
   const { menuKey, subMenuKey, collapsed } = useSelector((state: RootState) => state.workspace)
 
-  const changeUrl = (url: string, name: string) => {
-    if (location.pathname !== url) {
-      navigate(url)
-    }
-    dispatch(bachSetState({ menuName: name }))
-  }
+  const childMenuItems = createMenuItems(routerMaps[0].children, '', false)
 
   return (
     <Sider className="layout-sider" trigger={null} collapsible width={256} collapsed={collapsed}>
@@ -34,37 +24,9 @@ const LeftMenu = () => {
         defaultSelectedKeys={[menuKey]}
         defaultOpenKeys={[subMenuKey]}
         style={{ height: 'calc(100% - 64)', borderRight: 0, padding: '16px 0' }}
-      >
-        <SubMenu
-          key="user"
-          icon={<UserOutlined />}
-          title={
-            <span>
-              <span>系统管理</span>
-            </span>
-          }
-        >
-          <Menu.Item key="userlist">
-            <a onClick={() => changeUrl('/user/list', '用户管理')}>用户管理</a>
-          </Menu.Item>
-        </SubMenu>
-        <SubMenu
-          key="chart"
-          icon={<DesktopOutlined />}
-          title={
-            <span>
-              <span>图表</span>
-            </span>
-          }
-        >
-          <Menu.Item key="chartline">
-            <a onClick={() => changeUrl('/chart/line', '折线图')}>折线图</a>
-          </Menu.Item>
-          <Menu.Item key="chartpie">
-            <a onClick={() => changeUrl('/chart/pie', '饼图')}>饼图</a>
-          </Menu.Item>
-        </SubMenu>
-      </Menu>
+        items={childMenuItems || []}
+        onClick={item => navigate(item.key)}
+      />
     </Sider>
   )
 }

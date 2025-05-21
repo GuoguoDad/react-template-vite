@@ -1,5 +1,8 @@
 import React, { PropsWithChildren } from 'react'
 import { Layout } from 'antd'
+import { Outlet } from 'react-router-dom'
+import CheckPermission from '@kits/checkPermission'
+
 import Header from './components/header'
 import LeftMenu from './components/menu'
 import styles from './index.module.less'
@@ -12,7 +15,11 @@ const WorkSpace = (props: WorkSpaceProps) => {
       <LeftMenu />
       <Layout>
         <Header />
-        <Content className={styles.content}>{props.children}</Content>
+        <Content className={styles.content}>
+          <CheckPermission>
+            <Outlet />
+          </CheckPermission>
+        </Content>
       </Layout>
     </Layout>
   )

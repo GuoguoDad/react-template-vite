@@ -18,6 +18,7 @@
       "@http" : ["src/http/fetch"],
       "@img/*" : ["src/assets/images/*"],
       "@kits": ["src/kits"],
+      "@kits/*": ["src/kits/*"],
       "@store": ["src/store"]
     },
     "resolveJsonModule": true,
