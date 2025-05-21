@@ -71,7 +71,7 @@ export default defineConfig((): UserConfig => {
     envPrefix: 'APP_',
     server: {
       port: 3000,
-      open: 'http://localhost:3000/#/user/list',
+      open: 'http://localhost:3000/system/userList',
       cors: true
     },
     build: {

@@ -5,6 +5,7 @@ import CheckPermission from '@kits/checkPermission'
 
 import Header from './components/header'
 import LeftMenu from './components/menu'
+import Breadcrumbs from './components/breadcrumbs'
 import styles from './index.module.less'
 
 const { Content } = Layout
@@ -17,6 +18,7 @@ const WorkSpace = (props: WorkSpaceProps) => {
         <Header />
         <Content className={styles.content}>
           <CheckPermission>
+            <Breadcrumbs />
             <Outlet />
           </CheckPermission>
         </Content>

@@ -80,5 +80,28 @@ export const routerMaps: MenuRouteObject[] = [
   }
 ]
 
+const getBreadcrumbs = (pathname: string): string[] => {
+  const breadcrumbs: string[] = []
+  let tempRouters: MenuRouteObject[] = routerMaps[0].children!
+  let matchedPath = ''
+  while (tempRouters) {
+    let isMatchedRouters = false
+    for (const router of tempRouters) {
+      const routerPath = `${matchedPath}/${router.path}`
+      if (routerPath === pathname || pathname.includes(routerPath)) {
+        breadcrumbs.push(router.label!)
+        matchedPath = routerPath
+        isMatchedRouters = true
+        tempRouters = router.children as MenuRouteObject[]
+        break
+      }
+    }
+    if (!isMatchedRouters) {
+      break
+    }
+  }
+  return breadcrumbs
+}
+
 const router = createBrowserRouter(routerMaps)
-export { router }
+export { router, getBreadcrumbs }
