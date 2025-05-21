@@ -73,7 +73,17 @@ export default defineConfig((): UserConfig => {
     server: {
       port: 3000,
       open: 'http://localhost:3000/system/userList',
-      cors: true
+      cors: true,
+      proxy: {
+        // string shorthand: http://localhost:5173/foo -> http://localhost:4567/foo
+        '/foo': 'http://localhost:4567',
+        // with RegExp: http://localhost:5173/fallback/ -> http://jsonplaceholder.typicode.com/
+        '^/fallback/.*': {
+          target: 'http://jsonplaceholder.typicode.com',
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/fallback/, '')
+        }
+      }
     },
     build: {
       outDir: 'dist',

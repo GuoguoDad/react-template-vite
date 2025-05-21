@@ -25,7 +25,7 @@
     "axios": "^1.9.0",
     "classnames": "^2.3.2",
     "consola": "^3.4.2",
-    "dayjs": "^2.0.0-alpha.4",
+    "dayjs": "^1.11.13",
     "echarts": "^5.4.3",
     "events": "^3.3.0",
     "lodash": "^4.17.21",
