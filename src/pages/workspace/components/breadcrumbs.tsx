@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
-import { Breadcrumb } from 'antd'
-import { getBreadcrumbs } from '../../../router'
 import { useLocation } from 'react-router-dom'
+import { Breadcrumb } from 'antd'
+import { getBreadcrumbs } from '@router'
 
 /**
  * 面包屑组件

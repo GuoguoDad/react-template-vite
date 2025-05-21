@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 import { AppDispatch, RootState } from '@store'
-import { createMenuItems, routerMaps } from '../../../router'
+import { createMenuItems, routerMaps } from '@router'
 
 const { Sider } = Layout
 

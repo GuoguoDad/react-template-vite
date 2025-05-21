@@ -17,6 +17,7 @@
       "@comps" : ["src/components"],
       "@http" : ["src/http/fetch"],
       "@img/*" : ["src/assets/images/*"],
+      "@router" : ["src/router"],
       "@kits": ["src/kits"],
       "@kits/*": ["src/kits/*"],
       "@store": ["src/store"]

@@ -55,6 +55,7 @@ export default defineConfig((): UserConfig => {
         '@http': path.resolve(__dirname, './src/http/fetch'),
         '@img': path.resolve(__dirname, './src/assets/images'),
         '@kits': path.resolve(__dirname, './src/kits'),
+        '@router': path.resolve(__dirname, './src/router'),
         '@store': path.resolve(__dirname, './src/store')
       }
     },
